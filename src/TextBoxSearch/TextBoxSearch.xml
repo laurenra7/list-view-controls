@@ -54,12 +54,13 @@
             <category>Default Query</category>
             <description>Default query text to search for when page is loaded</description>
         </property>
-        <property key="defaultQueryEntity" type="entity" required="false">
-            <caption>Default query entity</caption>
-            <category>Default Query</category>
-            <description>Entity with an attribute that has the default query string</description>
-        </property>
-        <property key="defaultQueryAttribute" type="attribute" required="false" isPath="optional" pathType="reference" entityProperty="defaultQueryEntity">
+<!--        <property key="defaultQueryEntity" type="entity" required="false">-->
+<!--            <caption>Default query entity</caption>-->
+<!--            <category>Default Query</category>-->
+<!--            <description>Entity with an attribute that has the default query string</description>-->
+<!--        </property>-->
+<!--        <property key="defaultQueryAttribute" type="attribute" required="false" isPath="optional" pathType="reference" entityProperty="defaultQueryEntity">-->
+        <property key="defaultQueryAttribute" type="attribute" required="false" isPath="optional" pathType="reference">
             <caption>Search query attribute</caption>
             <category>Default Query</category>
             <description>The attribute that has the default query string</description>
