@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<widget id="com.mendix.widget.custom.listviewcontrols.TextBoxSearch" offlineCapable="true" needsEntityContext="false" xmlns="http://www.mendix.com/widget/1.0/">
+<widget id="com.mendix.widget.custom.listviewcontrols.TextBoxSearch" offlineCapable="true" needsEntityContext="true" xmlns="http://www.mendix.com/widget/1.0/">
     <name>Text box search</name>
     <description>Search Mendix list views using a search input</description>
     <icon>iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAA21BMVEUAAAD///9V//9VVVVdXV1VVVVJtv9bW1tVu/9dXV1bW1tJtvhXV1dXV1dXV1dIs/tLtPtMs/dYWFhJsvhXV1dIs/hWVlZXV1dKsvlJs/lVVVVVVVVXV1dKsfhJsvhVVVVWVlZWVlZWVlZWVlZJsfhIsfhIsPdKsfdVVVVWVlZWVlZWVlZJsPhJsfhVVVVVVVVWVlZJsfhJsPhIsfhIsfhWVlZJsfdIsPdJsPdVVVVJsfdJsfdVVVVWVlZIsPdIsPdVVVVVVVVVVVVVVVVIsPhVVVVVVVVIsPdVVVUrJ/rdAAAAR3RSTlMAAQMJCwwODg8WHCMjJjg8PUBASUlKUFJWV1dpam9wcn1/goOJiqKjpaequLy9v9LT1dbX2Nnh4uPj5Ofn6Ozt8vP4+fr8/tAt6NsAAAIISURBVHja7ZbZVsJADIYDUpGtCAqioFBE2RRXFNQqq8P7P5HJWMEwbQ853njBdwE9mck/2z8LbPEjXW31+uNxv9eqpsGH3ONjDgJJ1G8Xv7itJ2CN6ECpQRT8sZzxYo2xYwEjq5B98OXIXfjgHrFKDRK4AB8izqdOmHYr+YxlZfKV7lQHPp0IrLgngQcw2eno2m/l+CoWL7/pYGdnGUopTcpsX+dPajEejtUmWmHZh1OlOTMEHN28DQa27oQDHldKc23MH43/Jgk+JG9oHryZ3J0pzWwPGJZL7WO+rwL1wbWAKGHy/R3+HJsDmNgQgD1ZDqKJuQ1aySb3H/mnBoHUyFEJsuE7uYi89MHMeE4DiEEgMRpE3bPhe5RkuBnJ/2UIoUz7Av+9zl+umTFN/otDCHHyZPrbhiVvKmFFFUu7EEoXq1QhpReQFpObsYWlFQilglVacKY0hhl7WJqHUPJYpfdjQ8OMfSzNQCgZrNLf82xomJFcYEEoFjmhpBilZeloM4GRtuHqWGmKh/CKWVnQ7OPnq3gSXzDJc3AUxQbiZSw8Dw7Ao/DyVJAbyUBqZY58MwVT33Q7c+QHCkd+pHHkhypHfqxzpBdL24gLrjZifsLjwsvVVJBd7+25oSB8YJwYCsInjqEgfGQxBfkzjytI2SpsFf67QvGvCkP4kwIXkFMcDg9hy7/hC2H3zih53z21AAAAAElFTkSuQmCC</icon>
@@ -39,10 +39,33 @@
                 <translation lang="nl_NL">Zoeken</translation>
             </translations>
         </property>
+        <property key="queryLocation" type="enumeration" defaultValue="none">
+            <caption>Query location</caption>
+            <category>Default Query</category>
+            <description>Location of default query to be applied when page is loaded</description>
+            <enumerationValues>
+                <enumerationValue key="none">None</enumerationValue>
+                <enumerationValue key="text">Text</enumerationValue>
+                <enumerationValue key="attribute">Attribute</enumerationValue>
+            </enumerationValues>
+        </property>
         <property key="defaultQuery" type="string" required="false">
-            <caption>Default search text</caption>
-            <category>General</category>
-            <description>Query that is used on initial loading of the page</description>
+            <caption>Default query text</caption>
+            <category>Default Query</category>
+            <description>Default query text to search for when page is loaded</description>
+        </property>
+        <property key="defaultQueryEntity" type="entity" required="false">
+            <caption>Default query entity</caption>
+            <category>Default Query</category>
+            <description>Entity with an attribute that has the default query string</description>
+        </property>
+        <property key="defaultQueryAttribute" type="attribute" required="false" isPath="optional" pathType="reference" entityProperty="defaultQueryEntity">
+            <caption>Search query attribute</caption>
+            <category>Default Query</category>
+            <description>The attribute that has the default query string</description>
+            <attributeTypes>
+                <attributeType name="String"/>
+            </attributeTypes>
         </property>
     </properties>
 </widget>

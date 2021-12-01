@@ -12,10 +12,15 @@ import { FormViewState } from "../../Shared/FormViewState";
 
 export interface ContainerProps extends WrapperProps {
     attributeList: SearchAttributes[];
+    queryLocation: QueryLocation;
     defaultQuery: string;
+    defaultQueryEntity: string;
+    defaultQueryAttribute: string;
     entity: string;
     placeHolder: string;
 }
+
+type QueryLocation = "none" | "text" | "attribute";
 
 export interface SearchAttributes {
     attribute: string;
@@ -200,6 +205,8 @@ export default class SearchContainer extends Component<ContainerProps, Container
     }
 
     private getDefaultValue(): string {
+        console.log("TextBoxSearchContainer, get props.defaultQueryEntity: " + this.props.defaultQueryEntity); // testing only
+        console.log("TextBoxSearchContainer, get props.defaultQueryAttribute: " + this.props.defaultQueryAttribute); // testing only
         return this.viewStateManager.getPageState("defaultSearchText", this.props.defaultQuery);
     }
 
